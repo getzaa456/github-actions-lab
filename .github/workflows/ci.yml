@@ -1,18 +1,27 @@
-name: Phase 1 CI
+name: My First Pipeline
 
 on:
   push:
 
-jobs:
-  explore:
+job:
+  inspect:
     runs-on: ubuntu-latest
-      
+
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v6
+      name: Checkout
+      uses: actions/checkout@v6
 
-      - name: Simulate failure
-        run: exit 1
+      name: Show current directory
+      run: pwd
 
-      - name: This should not run
-        run: echo "Will I run?"
+      name: Show files
+      run: ls -la
+
+      name: Status
+      run: echo "CI is working"
+  
+  second-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      run: echo "This is another job"

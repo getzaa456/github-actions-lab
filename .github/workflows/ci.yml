@@ -1,0 +1,26 @@
+name: Phase 1 CI
+
+on:
+  push:
+
+jobs:
+  explore:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
+
+      - name: Show runner information
+        run: |
+          echo "Operating system:"
+          uname -a
+
+          echo "Current directory:"
+          pwd
+      
+      - name: Show repository files
+        run: ls -la
+
+      - name: Finish CI
+        run: echo "Phase 1 completed successfully"

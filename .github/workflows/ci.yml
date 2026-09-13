@@ -7,12 +7,12 @@ jobs:
   explore:
     runs-on: ubuntu-latest
       
-  steps:
-    - name: Checkout source code
-      uses: actions/checkout@v6
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v6
 
-    - name: Simulate failure
-      run: exit 1
+      - name: Simulate failure
+        run: exit 1
 
-    - name: This should not run
-      run: echo "Will I run?"
+      - name: This should not run
+        run: echo "Will I run?"

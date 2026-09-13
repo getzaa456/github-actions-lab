@@ -7,20 +7,12 @@ jobs:
   explore:
     runs-on: ubuntu-latest
       
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v6
+  steps:
+    - name: Checkout source code
+      uses: actions/checkout@v6
 
-      - name: Show runner information
-        run: |
-          echo "Operating system:"
-          uname -a
+    - name: Simulate failure
+      run: exit 1
 
-          echo "Current directory:"
-          pwd
-      
-      - name: Show repository files
-        run: ls -la
-
-      - name: Finish CI
-        run: echo "Phase 1 completed successfully"
+    - name: This should not run
+      run: echo "Will I run?"

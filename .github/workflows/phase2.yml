@@ -1,0 +1,53 @@
+name: Phase 2 Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs_on: ubuntu:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run lint simulation
+        run: echo "Lint passed"
+
+  test:
+    runs_on: ubuntu:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run test simulation
+        run: echo "Tests passed"
+
+  build:
+    needs: [lint, test]
+    runs_on: ubuntu:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build application
+        run: echo "Build completed"
+
+  summary:
+    needs: [lint, test, build]
+    if: always()
+    runs_on: ubuntu:latest
+
+    steps:
+      - name: Pipeline summary
+        run: echo "Pipeline execution finished"

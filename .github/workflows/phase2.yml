@@ -13,7 +13,7 @@ on:
 
 jobs:
   lint:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: Checkout repository
@@ -23,7 +23,7 @@ jobs:
         run: echo "Lint passed"
 
   test:
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: Checkout repository
@@ -34,7 +34,7 @@ jobs:
 
   build:
     needs: [lint, test]
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: Checkout repository
@@ -46,7 +46,7 @@ jobs:
   summary:
     needs: [lint, test, build]
     if: always()
-    runs_on: ubuntu:latest
+    runs-on: ubuntu:latest
 
     steps:
       - name: Pipeline summary
